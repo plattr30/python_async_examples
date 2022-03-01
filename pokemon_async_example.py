@@ -17,7 +17,6 @@ async def main():
         for number in range(1, 151):
             url = f'https://pokeapi.co/api/v2/pokemon/{number}'
             tasks.append(get_pokemon(client, url))
-        print(tasks)
         original_pokemon = await asyncio.gather(*tasks)
         for pokemon in original_pokemon:
             print(pokemon)
