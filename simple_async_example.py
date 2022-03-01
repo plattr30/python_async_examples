@@ -19,10 +19,8 @@ async def do_something_else():
 
 
 async def main():
-    task1 = asyncio.create_task(do_something())
-    task2 = asyncio.create_task(do_something_else())
-    # await task1
-    # await task2
+    task1 = do_something()
+    task2 = do_something_else()
     tasks = [task1, task2]
     results = await asyncio.gather(*tasks)
     print(results)
