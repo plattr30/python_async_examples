@@ -13,11 +13,11 @@ async def get_pokemon(client, url):
 
 async def main():
     async with httpx.AsyncClient() as client:
-        tasks = []
+        awaitables = []
         for number in range(1, 151):
             url = f'https://pokeapi.co/api/v2/pokemon/{number}'
-            tasks.append(get_pokemon(client, url))
-        original_pokemon = await asyncio.gather(*tasks)
+            awaitables.append(get_pokemon(client, url))
+        original_pokemon = await asyncio.gather(*awaitables)
         for pokemon in original_pokemon:
             print(pokemon)
 

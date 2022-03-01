@@ -19,10 +19,10 @@ async def do_something_else():
 
 
 async def main():
-    task1 = do_something()
-    task2 = do_something_else()
-    tasks = [task1, task2]
-    results = await asyncio.gather(*tasks)
+    coro1 = do_something()
+    coro2 = do_something_else()
+    aws = [coro1, coro2]
+    results = await asyncio.gather(*aws)
     print(results)
 
 
